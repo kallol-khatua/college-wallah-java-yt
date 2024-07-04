@@ -49,6 +49,33 @@ class TwoPointer {
         }
         System.out.println();
     }
+
+    static int[] sortSquares(int[] arr) {
+        int n = arr.length;
+        int i = 0, j = n - 1;
+        int[] ans = new int[n];
+        int k = 0;
+        while (i <= j) {
+            if(Math.abs(arr[i]) > Math.abs(arr[j])){
+                ans[k++] = arr[i] * arr[i];
+                i++;
+            } else {
+                ans[k++] = arr[j] * arr[j];
+                j--;
+            }
+        }
+//        reverse the answer array
+        i = 0;
+        j = n - 1;
+        while (i < j){
+            int temp = ans[i];
+            ans[i] = ans[j];
+            ans[j] = temp;
+            i++;
+            j--;
+        }
+        return ans;
+    }
 }
 
 public class JAVA_18_Array_5 {
@@ -66,5 +93,12 @@ public class JAVA_18_Array_5 {
 //        TwoPointer.printArray(arr_2);
 //        TwoPointer.sortEvenAndOdd(arr_2);
 //        TwoPointer.printArray(arr_2);
+
+
+
+//        we have one non-decreasing array , return an array which consist of the square of all elements in non-decreasing order
+        int[] arr_3 = {-10, -3, -2, 1, 4, 5};
+        int[] arr_4 = {2, 4, 5, 6, 7, 9};
+        TwoPointer.printArray(TwoPointer.sortSquares(arr_3));
     }
 }
