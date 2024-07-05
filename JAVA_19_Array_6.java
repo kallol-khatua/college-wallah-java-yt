@@ -35,6 +35,13 @@ class PrefixSum {
         }
         return false;
     }
+
+    static int[] findSuffixSumArray(int[] arr) {
+        for (int i = arr.length - 2; i >= 0; i--) {
+            arr[i] += arr[i + 1];
+        }
+        return arr;
+    }
 }
 
 public class JAVA_19_Array_6 {
@@ -69,7 +76,11 @@ public class JAVA_19_Array_6 {
 //        equal to the suffix sum
         int[] arr_3 = {1, 2, 3, 4, 5};
         int[] arr_4 = {1, 1, 1, 1, 1, 1};
-        System.out.println(PrefixSum.equalSumPartition(arr_3));
-        System.out.println(PrefixSum.equalSumPartition(arr_4));
+//        System.out.println(PrefixSum.equalSumPartition(arr_3));
+//        System.out.println(PrefixSum.equalSumPartition(arr_4));
+
+
+        int[] arr_5 = {1, 2, 3, 4, 5};
+        PrefixSum.printArray(PrefixSum.findSuffixSumArray(arr_5));
     }
 }
