@@ -19,6 +19,23 @@ class TwoDimensionalArray {
         }
         return ans;
     }
+
+    static void reverseArray(int[] arr) {
+        int i = 0, j = arr.length - 1;
+        while (i < j) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+
+    static void reverse2dArray(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            reverseArray(arr[i]);
+        }
+    }
 }
 
 public class JAVA_20_2D_Array {
@@ -43,8 +60,19 @@ public class JAVA_20_2D_Array {
                 {4, 1}
         };
 
-        int[][] ans = TwoDimensionalArray.arrayMultiplication(arr_3, 2, 2, arr_4, 2, 2);
-        TwoDimensionalArray.print2dArray(ans);
+//        int[][] ans = TwoDimensionalArray.arrayMultiplication(arr_3, 2, 2, arr_4, 2, 2);
+//        TwoDimensionalArray.print2dArray(ans);
+
+
+        int[][] arr_5 = {
+                {2, 1, 3},
+                {4, 6, 2},
+                {7, 2, 8}
+        };
+        TwoDimensionalArray.print2dArray(arr_5);
+        TwoDimensionalArray.reverse2dArray(arr_5);
+        System.out.println();
+        TwoDimensionalArray.print2dArray(arr_5);
 
     }
 }
