@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class TwoDimensionalArrayPractice {
     static void print2dArray(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -72,6 +74,21 @@ class TwoDimensionalArrayPractice {
         reverseColumn(arr);
     }
 
+    static int[][] pascalTriangle(int n) {
+        int[][] ans = new int[n][];
+        for (int i = 0; i < n; i++) {
+            ans[i] = new int[i + 1];
+            for (int j = 0; j < i + 1; j++) {
+                if (j == 0 || j == i) {
+                    ans[i][j] = 1;
+                } else {
+                    ans[i][j] = ans[i - 1][j] + ans[i - 1][j - 1];
+                }
+            }
+        }
+        return ans;
+    }
+
 }
 
 public class JAVA_21_2d_Array {
@@ -108,9 +125,17 @@ public class JAVA_21_2d_Array {
 
 
 //        rotate square matrix by 90 degree anti-clock wise
-        TwoDimensionalArrayPractice.print2dArray(arr_3);
-        TwoDimensionalArrayPractice.rotate90DegreeAntiClockWise(arr_3);
-        System.out.println();
-        TwoDimensionalArrayPractice.print2dArray(arr_3);
+//        TwoDimensionalArrayPractice.print2dArray(arr_3);
+//        TwoDimensionalArrayPractice.rotate90DegreeAntiClockWise(arr_3);
+//        System.out.println();
+//        TwoDimensionalArrayPractice.print2dArray(arr_3);
+
+
+//        pascal's
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter number of rows");
+        int n = sc.nextInt();
+        int[][] pascalTriangle = TwoDimensionalArrayPractice.pascalTriangle(n);
+        TwoDimensionalArrayPractice.print2dArray(pascalTriangle);
     }
 }
