@@ -18,6 +18,18 @@ class TwoDimensionalArrayPractice {
         return ans;
     }
 
+    static void transposeInPlace(int[][] arr) {
+//        check for square matrix
+
+        for(int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j < arr[0].length; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+    }
+
 }
 
 public class JAVA_21_2d_Array {
@@ -26,7 +38,18 @@ public class JAVA_21_2d_Array {
                 {1, 2, 3},
                 {4, 1, 3}
         };
-        int[][] ans = TwoDimensionalArrayPractice.findTranspose(arr_1, 2, 3);
-        TwoDimensionalArrayPractice.print2dArray(ans);
+//        int[][] ans = TwoDimensionalArrayPractice.findTranspose(arr_1, 2, 3);
+//        TwoDimensionalArrayPractice.print2dArray(ans);
+
+
+        int[][] arr_2 = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+        TwoDimensionalArrayPractice.print2dArray(arr_2);
+        TwoDimensionalArrayPractice.transposeInPlace(arr_2);
+        System.out.println();
+        TwoDimensionalArrayPractice.print2dArray(arr_2);
     }
 }
