@@ -31,7 +31,7 @@ class TwoDimensionalArrayPractice {
     }
 
     static void reverseRow(int[][] arr) {
-        for(int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             int j = 0, k = arr[i].length - 1;
             while (j < k) {
                 int temp = arr[i][j];
@@ -43,12 +43,33 @@ class TwoDimensionalArrayPractice {
         }
     }
 
-    static void rotate90Degree(int[][] arr) {
+    static void reverseColumn(int[][] arr) {
+        for (int i = 0; i < arr[0].length; i++) {
+            int j = 0, k = arr.length - 1;
+            while (j < k) {
+                int temp = arr[j][i];
+                arr[j][i] = arr[k][i];
+                arr[k][i] = temp;
+                j++;
+                k--;
+            }
+        }
+    }
+
+    static void rotate90DegreeClockWise(int[][] arr) {
 //        transpose
         transposeInPlace(arr);
 
 //        reverse each row
         reverseRow(arr);
+    }
+
+    static void rotate90DegreeAntiClockWise(int[][] arr) {
+//        transpose
+        transposeInPlace(arr);
+
+//        reverse each column
+        reverseColumn(arr);
     }
 
 }
@@ -74,14 +95,21 @@ public class JAVA_21_2d_Array {
 //        TwoDimensionalArrayPractice.print2dArray(arr_2);
 
 
-//        rotate square matrix by 90 degree
+//        rotate square matrix by 90 degree clock wise
         int[][] arr_3 = {
                 {1, 2, 3},
                 {4, 5, 6},
                 {7, 8, 9}
         };
+//        TwoDimensionalArrayPractice.print2dArray(arr_3);
+//        TwoDimensionalArrayPractice.rotate90DegreeClockWise(arr_3);
+//        System.out.println();
+//        TwoDimensionalArrayPractice.print2dArray(arr_3);
+
+
+//        rotate square matrix by 90 degree anti-clock wise
         TwoDimensionalArrayPractice.print2dArray(arr_3);
-        TwoDimensionalArrayPractice.rotate90Degree(arr_3);
+        TwoDimensionalArrayPractice.rotate90DegreeAntiClockWise(arr_3);
         System.out.println();
         TwoDimensionalArrayPractice.print2dArray(arr_3);
     }
